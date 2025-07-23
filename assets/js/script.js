@@ -12,7 +12,7 @@
 // manipulation
 
 // selectionne mon element html qui porte l'id element
-let monElement =  document.querySelector("#element");
+let monElement = document.querySelector("#element");
 
 // un log du contenu de mon element
 console.log(monElement);
@@ -30,11 +30,43 @@ monElement.textContent = "HEYHEYHEYHEYHEYEHEY";
 
 // ajouter la class "dark" que vous aurez crée préalablement definie a l'element body de votre html
 // tout ca dans une fonction dark0rlight()
-let classedBody = document.querySelector("body");
+let classedBody = document.getElementById("body");
+const darkBtn = document.getElementById("darkBtn")
 
-function dark0rlight() {
+function darkOrlight() {
     classedBody.classList.add("dark");
-    console.log(classedBody);
+    lightBody.classList.remove("light");
 }
+// getelement (byid par ex) est plus opti que queryselector
+// au click executer la function darkOrlight
+darkBtn.addEventListener("click", darkOrlight);
 
-dark0rlight();
+// mtn faire le btn light
+const lightBtn = document.getElementById("lightBtn");
+console.log(lightBtn)
+
+// je créer une variable const lightBtn, avec document. je rentre dans mon html
+// avec la fonction native getelementbyidje vais chercher mon id lightbtn crée dans le html
+
+let lightBody = document.getElementById("body");
+console.log(lightBody);
+
+// je créer une variable lightBody, tout comme la variable lightbtn je mets doc. et ensuite la meme fonction native
+// cette fois-ci je vais chercher mon id Body
+
+function lightOrDark() {
+    lightBody.classList.add("light");
+    lightBody.classList.remove("dark");
+    // avec classlist et la fonction remove, je retire la class dark car sinon après avoir appuyé sur les 2btn
+    // mon body aura 2 class
+    // je l'ai également mis dans ma fonction darkOrLight
+}
+// Création d'une fonction lightOrDark (inverse ma fonction darkOrLight), je dis dans cette fonction que j'ajoute
+// une class "light" crée dans mon css, étant donné que c'est avec ma variable lightBody
+// classlist permet de gérer les classes CSS d'un élément
+// c'est mon body qui sera affecté par cet ajout de class
+
+lightBtn.addEventListener("click", lightOrDark);
+// je rappelle la variable lightbtn, je lui ajoute la fonction native addEventListener(un écouteur en FR)
+// dans la parantèse on commence par le type, ici c'est le click, ensuite je lui mets ma fonction pour qu'elle se
+// décapsule
